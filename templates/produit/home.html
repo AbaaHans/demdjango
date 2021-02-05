@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-5">
+        <h3>Clients</h3>
+        <hr>
+        <div class="card card-body shadow">
+            <a href="{% url 'ajout_clt' %}" class="btn btn-primary btn-sm btn-block">Créer un client</a>
+            <table class="table table-primary  table-hover table-sm ">
+                <tr class=" text-success">
+                    <th>ID</th>
+                    <th>Clients</th>
+                    <th>Telephone</th>
+                     <th>Détails</th>
+                </tr>
+                {% for client in clients %}
+                <tr>
+                    <th> <a href="{% url 'client' client.id %}">{{ client.id }}</a></th>
+                    <th>{{ client.nom }}</th>
+                    <th>{{ client.telephone }}</th>
+                    <th><a class="btn btn-outline-info" href="{% url 'client' client.id %}">Détails</a> </th>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+    <div class="col-md-7">
+        <h3>Les commandes</h3>
+        <hr>
+        <div class="card card-body shadow">
+            <a href="{% url 'ajout_cmd' %}" class="btn btn-primary btn-sm btn-block">Ajouter une commande</a>
+            <table class="table table-primary table-hover table-sm">
+                <tr class=" text-success">
+                    <th>Produit</th>
+                    <th>Client</th>
+                    <th>Date de la commande</th>
+                    <th>Statut</th>
+                    <th>Mise à jour</th>
+                    <th>Supprimer</th>
+                </tr>
+                  {% for commande in commandes %}
+                <tr>
+                    <th>{{ commande.produit }}</th>
+                    <th>{{ commande.client }}</th>
+                    <th>{{ commande.date_creation }}</th>
+                    <th>{{ commande.status }}</th>
+                    <th><a class="btn btn-outline-info" href="{% url 'modif_cmd' commande.id %}">Mise à jour</a> </th>
+                    <th><a class="btn btn-outline-danger" href="{% url 'suppr_cmd' commande.id %}">Supprimer</a></th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+</div>
+</div>
+{% endblock %}
