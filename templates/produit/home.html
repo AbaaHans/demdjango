@@ -47,7 +47,7 @@
                     <th>{{ commande.client }}</th>
                     <th>{{ commande.date_creation }}</th>
                     <th>{{ commande.status }}</th>
-                    <th><a class="btn btn-outline-info" href="{% url 'modif_cmd' commande.id %}">Mise à jour</a> </th>
+                    <th><a class="btn btn-outline-info" href="{% url 'modif_cmd' commande.id %}">Modifier</a> </th>
                     <th><a class="btn btn-outline-danger" href="{% url 'suppr_cmd' commande.id %}">Supprimer</a></th>
                 </tr>
                 {% endfor %}

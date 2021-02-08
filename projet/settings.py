@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'client',
     'commande',
     'produit',
+    'compte',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
