@@ -76,8 +76,8 @@
 				</div>
 				<div class="d-flex justify-content-center form_container">
 
-					<form method="POST" action="{% url 'login' %}">
-                        {%csrf_token%}
+					<form method="POST" action="">
+                        {%csrf_token %}
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -128,7 +128,6 @@
 		form_fields[2].placeholder='Email...';
 		form_fields[3].placeholder='Mot de passe...';
 		form_fields[4].placeholder='Confirmer mot de passe...';
-
 
 		for (var field in form_fields){
 			form_fields[field].className += ' form-control'

@@ -104,7 +104,9 @@
 				 				<input class="btn login_btn" type="submit" value="Connexion">
 				   			</div>
 					</form>
-
+					{% for messsage in messages %}
+						<p id="message">{{message}}</p>
+					{%endfor%}
 				</div>
 
 				<div class="mt-4">
