@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg  shadow navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">MonCrm</a>
+        <a class="navbar-brand " href="#">MonCrm</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,8 +11,11 @@
                 <a class="nav-link" href="">Produits</a>
                 <a class="nav-link" href="">Clients</a>
                 <a class="nav-link" href="">Commandes</a>
-                <a class="nav-link" href="">Contacts</a>
             </div>
         </div>
+        <span><a class="btn btn-outline-warning" href="{% url 'quitter' %}">Déconnecté</a></span>
+    </div>
+    <div>
+        <span>Bonjour {{request.user}}</span>
     </div>
 </nav>

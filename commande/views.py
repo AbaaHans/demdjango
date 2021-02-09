@@ -2,10 +2,14 @@
 from django.shortcuts import render,redirect
 from .forms import CommandeForm
 from .models import Commande
+from django.contrib.auth.decorators import login_required
+
+@login_required(login_url='login')
 
 def List_Cmd(request):
     return render(request,'commande/listecommande.html')
 
+@login_required(login_url='login')
 def Ajouter_Cmd(request):
     form=CommandeForm()
     if request.method=='POST':
@@ -16,6 +20,7 @@ def Ajouter_Cmd(request):
     cotext={'form':form}
     return render(request,'commande/ajouter_commande.html',cotext)
 
+@login_required(login_url='login')
 def Modifier_Cmd(request,pk):
     commande=Commande.objects.get(id=pk)
     form=CommandeForm(instance=commande)
@@ -27,6 +32,7 @@ def Modifier_Cmd(request,pk):
     cotext={'form':form}
     return render(request,'commande/ajouter_commande.html',cotext)
 
+@login_required(login_url='login')
 def Supprimer_Cmd(request,pk):
     commande=Commande.objects.get(id=pk)
     if request.method == 'POST':

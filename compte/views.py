@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .forms import CreeUtilisateur
 
@@ -14,7 +14,7 @@ def Inscription(request):
         if form.is_valid():
             form.save()
             user=form.cleaned_data('username')
-            messages.success(request,'Compte créer avec succès')
+            messages.success(request,'Compte créer avec succès'+user)
             return redirect('login')
     context = {'form':form}
     return render(request,'compte/inscription.html',context)
@@ -32,3 +32,8 @@ def Login(request):
         else:
             messages.info(request, 'Identifiant/Mot de passe incorrect')
     return render(request,'compte/login.html',context)
+
+
+def LogoutUser(request):
+    logout(request)
+    return redirect('login')
