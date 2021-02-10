@@ -6,7 +6,6 @@ from commande.filters import CommandeFiltre
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
-
 def List_Clts(request,pk):
     client=Client.objects.get(id=pk)
     commande=client.commande_set.all()
@@ -14,7 +13,7 @@ def List_Clts(request,pk):
     myFilter = CommandeFiltre(request.GET, queryset=commande)
     commande=myFilter.qs
     context={'client':client,'commande':commande,'commande_total':commande_total,'myFilter':myFilter}
-    return render(request,'client/listclient.html',context)
+    return render(request,'client/détaille.html',context)
 
 @login_required(login_url='login')
 def Ajouter_Clts(request):
@@ -28,3 +27,9 @@ def Supprimer_Clts(request,pk):
         commande.delete()
     context={'item':commande}
     return render(request,'commande/supprimer.html',context)
+
+
+def All_Clts(request):
+    clients = Client.objects.all()
+    context= {'clients':clients}
+    return render(request,'client/listclient.html',context)

@@ -9,8 +9,8 @@
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="#">Accueil</a>
                 <a class="nav-link" href="">Produits</a>
-                <a class="nav-link" href="">Clients</a>
-                <a class="nav-link" href="">Commandes</a>
+                <a class="nav-link" href="{% url 'All_Clts' %}">Clients</a>
+                <a class="nav-link" href="{% url 'listecommande' %}">Commandes</a>
             </div>
         </div>
         <span><a class="btn btn-outline-warning" href="{% url 'quitter' %}">Déconnecté</a></span>

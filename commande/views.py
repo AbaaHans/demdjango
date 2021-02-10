@@ -7,7 +7,9 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='login')
 
 def List_Cmd(request):
-    return render(request,'commande/listecommande.html')
+    Commandes=Commande.objects.all()
+    context={'commandes':Commandes}
+    return render(request,'commande/listecommande.html',context)
 
 @login_required(login_url='login')
 def Ajouter_Cmd(request):
