@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row p-2">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {{form}}
+                    <input type="submit" class="form-control btn-sm btn-block bg-info m-2
+                    " name="envoyer">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

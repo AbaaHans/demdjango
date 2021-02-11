@@ -7,8 +7,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-                <a class="nav-link" href="">Produits</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Accueil</a>
+                <a class="nav-link" href="{% url 'Liste_des_produits' %}">Produits</a>
                 <a class="nav-link" href="{% url 'All_Clts' %}">Clients</a>
                 <a class="nav-link" href="{% url 'listecommande' %}">Commandes</a>
             </div>

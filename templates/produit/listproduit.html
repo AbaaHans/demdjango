@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="col-md-12">
+        <h3>Listes des produits</h3>
+        <hr>
+        <div class="card card-body shadow">
+            <a href="{% url 'ajout_cmd' %}" class="btn btn-primary btn-sm btn-block">Ajouter un produit</a>
+            <table class="table table-primary table-hover table-sm">
+                <tr class=" text-success">
+                    <th>Image</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Mise à jour</th>
+                    <th>Supprimer</th>
+                </tr>
+                  {% for produit in produits %}
+                <tr>
+                    <th>
+                        {% if produit.image_url %}
+                        <img src="{{ produit.image_url.url }}" class="card-img-top"
+                             style="width:5rem;" alt="produit.title" >
+                        {% else %}
+                        <img src="https://via.placeholder.com/80?text=not image">
+
+                        {% endif %}
+                    </th>
+                    <th>{{ produit.nom }}</th>
+                    <th>{{ produit.prix }} DHS</th>
+                    <th><a class="btn btn-outline-info" href="{% url 'modif_prod' produit.id %}">Modifier</a> </th>
+                    <th><a class="btn btn-outline-danger" href="{% url 'suppr_prod' produit.id %}">Supprimer</a></th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock %}
